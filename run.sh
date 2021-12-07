@@ -1,1 +1,1 @@
-python server.py --port 7433 -v -c ./good_certs/goodsol.crt -k ./good_certs/goodsol.key
+python3 server.py --port 4433 -v --certificate ./singapore.overlinkapp.org/fullchain.pem --private-key ./singapore.overlinkapp.org/privkey.pem
