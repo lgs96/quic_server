@@ -62,7 +62,7 @@ async def echo(request):
     media_type = request.headers.get("content-type")
     #print('Content bytes: ', len(content)/1024 'KB')
     #image = Image.open(io.BytesIO(content))
-    print('Time shift: ', time_shift)
+    #print('Time shift: ', time_shift)
     content_upload_time = current_milli_time()
     #print('Content upload time: ', content_upload_time, datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S.%f')[:-3])
     #prediction = inference.run_inference(content)
@@ -113,7 +113,7 @@ async def ntp_start(request):
         current_local_time = current_local_time - time_shift +20                                                        
         _linux_set_time(current_local_time/1000)
 
-    return Response('Hi', media_type='text/plain')
+    return Response('NTP', media_type='text/plain')
 
 def _linux_set_time(time_tuple):
     time_string = datetime.fromtimestamp(time_tuple).isoformat()
@@ -138,47 +138,24 @@ async def file_upload(request):
     media_type = request.headers.get("content-type")
     #print('Content bytes: ', len(content)/1024 'KB')
     #image = Image.open(io.BytesIO(content))
-    print('Time shift: ', time_shift)
+    #print('Time shift: ', time_shift)
     
     content_upload_time = current_milli_time()
     response = JSONResponse({'upload_finished': content_upload_time})
 
     return response
-   
-async def dummy_upload(request):
-    global min_rtt
-    global time_shift
-    
-    min_rtt = 9999
-
-    #content = await request.body()
-    #media_type = request.headers.get("content-type")
-    #print('Content bytes: ', len(content)/1024 'KB')
-    #image = Image.open(io.BytesIO(content))
-    #print('Time shift: ', time_shift)
-    
-    #content_upload_time = current_milli_time()
-    #response = JSONResponse({'dummy_finished': content_upload_time})
-
-    #return response
 
     
 async def dummy_upload(request):
     global min_rtt
     global time_shift
-    
-    #min_rtt = 9999
 
-    #content = await request.body()
-    #media_type = request.headers.get("content-type")
-    #print('Content bytes: ', len(content)/1024 'KB')
-    #image = Image.open(io.BytesIO(content))
-    #print('Time shift: ', time_shift)
     
-    #content_upload_time = current_milli_time()
-    #response = JSONResponse({'upload_finished': content_upload_time})
+    content = await request.body()
 
-    #return response
+    print('Dummy bytes: ', len(content)/1024, 'KB')
+
+    return
     
 starlette = Starlette(
     routes=[
@@ -189,6 +166,8 @@ starlette = Starlette(
     ] 
 )
 
-
 async def app(scope: Scope, receive: Receive, send: Send) -> None:
-    await starlette(scope, receive, send)
+    try:
+        await starlette(scope, receive, send)
+    except:
+        print('Dummy upload')
