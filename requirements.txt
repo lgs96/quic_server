@@ -1,1 +1,8 @@
 aioquic
+asgiref
+dnslib
+httpbin
+starlette
+wsproto
+pillow
+numpy

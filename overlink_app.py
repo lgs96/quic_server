@@ -162,6 +162,24 @@ async def dummy_upload(request):
 
     #return response
 
+    
+async def dummy_upload(request):
+    global min_rtt
+    global time_shift
+    
+    #min_rtt = 9999
+
+    #content = await request.body()
+    #media_type = request.headers.get("content-type")
+    #print('Content bytes: ', len(content)/1024 'KB')
+    #image = Image.open(io.BytesIO(content))
+    #print('Time shift: ', time_shift)
+    
+    #content_upload_time = current_milli_time()
+    #response = JSONResponse({'upload_finished': content_upload_time})
+
+    #return response
+    
 starlette = Starlette(
     routes=[
         Route("/echo", echo, methods=["POST"]),
