@@ -1,18 +1,17 @@
 # How to run server for BULLET
-## 1. Get HTTPS certificate for QUIC
-### a. Connect domain address and IP address
+## a. Connect domain address and IP address
 
 -We deploy server on Amazon AWS and connect domain with Route 53 in the AWS service
 
 -Reference: https://aws.amazon.com/en/route53/
 
-### b. Install letsencrypt 
+## b. Install letsencrypt 
 
 -sudo apt update 
 
 -sudo apt-get install  letsencrypt -y 
 
-### c. Get certificate
+## c. Get certificate
 
 -cd /root/
 
@@ -22,7 +21,7 @@
 
 -service nginx restart
 
-### d. Copy certificate information on the working folder
+## d. Copy certificate information on the working folder
 
 -cd etc/letsencrypt/live/your_domain
 
@@ -36,7 +35,7 @@
 
 -python3 server.py --port 4433 -v --certificate ./*your_domain*/fullchain.pem --private-key ./*your_domain*/privkey.pem
 
-### e. Run QUIC server
+## e. Run QUIC server
 
 -./run.sh 
 
