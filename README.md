@@ -3,7 +3,7 @@
 
 We deploy server on Amazon AWS and connect domain with Route 53 in the AWS service (ubuntu)
 
-For amazone linux or centos, refer https://awswithatiq.com/letsencrypt-with-amazon-linux-2-centos-7/
+For amazon linux or centos, refer https://dev-jwblog.tistory.com/57
 
 Reference: https://aws.amazon.com/en/route53/
 
