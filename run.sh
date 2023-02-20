@@ -1,1 +1,1 @@
-python3 server.py --port 4433 --certificate ./good_certs/goodsol.crt --private-key ./good_certs/goodsol.key
+python3 server.py --port 4433 --certificate ./certs/fullchain.pem --private-key ./certs/privkey.pem
