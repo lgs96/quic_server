@@ -1,7 +1,9 @@
 # How to run server for BULLET
 ## a. Connect domain address and IP address
 
-We deploy server on Amazon AWS and connect domain with Route 53 in the AWS service
+We deploy server on Amazon AWS and connect domain with Route 53 in the AWS service (ubuntu)
+
+For amazone linux or centos, refer https://awswithatiq.com/letsencrypt-with-amazon-linux-2-centos-7/
 
 Reference: https://aws.amazon.com/en/route53/
 
@@ -39,6 +41,6 @@ python3 server.py --port 4433 -v --certificate ./*your_domain*/fullchain.pem --p
 
 ./run.sh 
 
-Now enjoy BULLET!
+
 
 
